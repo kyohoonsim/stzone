@@ -16,9 +16,9 @@ class MyApp(QWidget):
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setWindowFlags(Qt.WindowStaysOnTopHint)
         self.move(300, 300)
-        self.setStyleSheet("background-color: yellow;")
+        self.setStyleSheet("background-color: blue;")
         self.setWindowOpacity(0.3)
-        self.resize(400, 400)
+        self.resize(200, 220)
         self.show()
 
     def mousePressEvent(self, event):
