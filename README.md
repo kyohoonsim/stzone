@@ -8,4 +8,5 @@
 ## 실행파일 생성 명령어
 ```
 pyinstaller --onefile --noconsole --icon=icon.ico --add-data="icon.ico;." -n="STZone_blue v1.0" stzone.py
+pyinstaller --onefile --noconsole --icon=icon.ico --add-data="icon.ico;." -n="STZone_yellow v1.0" stzone.py
 ```
