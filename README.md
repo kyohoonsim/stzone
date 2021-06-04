@@ -3,3 +3,9 @@
 
 ## 설치 필요한 패키지
 - pyqt5: `pip install pyqt5`
+- pyinstaller: `pip install pyinstaller`
+
+## 실행파일 생성 명령어
+```
+pyinstaller --onefile --icon=icon.ico --add-data="icon.ico;." -n="STZone_blue v1.0" stzone.py
+```
