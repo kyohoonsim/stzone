@@ -1,7 +1,9 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QDialog
-from PyQt5.QtGui import QPainter, QPen, QColor, QBrush
+from PyQt5.QtGui import QPainter, QPen, QColor, QBrush, QIcon
 from PyQt5.QtCore import Qt, QPoint
+import icon
+
 
 class MyApp(QWidget):
 
@@ -12,7 +14,8 @@ class MyApp(QWidget):
 
 
     def initUI(self):
-        self.setWindowTitle('STZONE v1.0')
+        self.setWindowTitle('STZONE_blue v1.0')
+        self.setWindowIcon(QIcon(':/icon.png'))
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setWindowFlags(Qt.WindowStaysOnTopHint)
         self.move(300, 300)

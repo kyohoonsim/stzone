@@ -4,3 +4,8 @@ Lib/
 pyvenv.cfg
 
 .idea/
+dist/
+build/
+__pycache__/
+
+*.spec
