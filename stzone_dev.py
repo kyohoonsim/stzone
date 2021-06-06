@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QSlider, QDialog, QPushButton, QHBoxLayout, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QDialog, QPushButton, QHBoxLayout, QVBoxLayout
 from PyQt5.QtGui import QPainter, QPen, QColor, QBrush, QIcon, QPixmap
 from PyQt5.QtCore import Qt, QPoint
 import icon
@@ -9,41 +9,18 @@ class MyApp(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.opacityvalue = 0.2
         self.initUI()
 
-    def changeOpacity(self):
-        self.opacityvalue = round(self.slider.value() / 100, 1)
-        print(self.opacityvalue)
-        self.setWindowOpacity(self.opacityvalue)
-
     def initUI(self):
-        self.slider = QSlider(Qt.Horizontal, self)
-        self.slider.setRange(10, 100)
-        self.slider.setSingleStep(10)
-
-        self.slider.valueChanged.connect(self.changeOpacity)
-
-        hbox = QHBoxLayout()
-        hbox.addStretch(1)
-        hbox.addWidget(self.slider)
-        hbox.addStretch(1)
-
-        vbox = QVBoxLayout()
-        vbox.addStretch(1)
-        vbox.addLayout(hbox)
-
-        self.setLayout(vbox)
-
         self.setWindowTitle('STZONE v1.0')
         self.setWindowIcon(QIcon(':/icon.png'))
-        # self.setWindowFlags(Qt.FramelessWindowHint)
+        self.setWindowFlags(Qt.FramelessWindowHint)
         # self.setAttribute(Qt.WA_NoSystemBackground, True)
         # self.setAttribute(Qt.WA_TranslucentBackground, True)
         self.setWindowFlags(Qt.WindowStaysOnTopHint)
         self.move(300, 300)
-        self.setStyleSheet("background-color: white;")
-        self.setWindowOpacity(self.opacityvalue)
+        # self.setStyleSheet("background-color: transparent;")
+        self.setWindowOpacity(0.3)
         self.resize(200, 220)
         self.show()
 
