@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QSlider, QDialog, QPushButton, QHBoxLayout, QVBoxLayout
 from PyQt5.QtGui import QPainter, QPen, QColor, QBrush, QIcon, QPixmap
-from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtCore import QCoreApplication, Qt, QPoint
 import icon
 
 
@@ -9,15 +9,9 @@ class MyApp(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.opacityvalue = 0.3
         self.stzw = 400
         self.stzh = 500
         self.initUI()
-
-    # def changeOpacity(self):
-    #     self.opacityvalue = round(self.slider.value() / 100, 1)
-    #     print(self.opacityvalue)
-    #     self.setWindowOpacity(self.opacityvalue)
 
     def changeStzW(self):
         self.stzw = self.slider1.value()
@@ -30,11 +24,6 @@ class MyApp(QWidget):
         self.resize(self.stzw, self.stzh)
 
     def initUI(self):
-        # self.slider = QSlider(Qt.Horizontal, self)
-        # self.slider.setRange(10, 100)
-        # self.slider.setValue(100)
-        # self.slider.setSingleStep(10)
-
         self.slider1 = QSlider(Qt.Horizontal, self)
         self.slider1.setRange(100, 500)
         self.slider1.setValue(200)
@@ -45,42 +34,26 @@ class MyApp(QWidget):
         self.slider2.setValue(200)
         self.slider2.setSingleStep(2)
 
-        # self.slider.valueChanged.connect(self.changeOpacity)
         self.slider1.valueChanged.connect(self.changeStzW)
         self.slider2.valueChanged.connect(self.changeStzH)
 
+        self.button = QPushButton('close', self)
+        self.button.clicked.connect(QCoreApplication.instance().quit)
+        self.button.move(30, 30)
+        self.button.setStyleSheet("background-color: hotpink; color: white; font-weight: bold;")
+        self.button.resize(60, 30)
+
         # hbox = QHBoxLayout()
         # hbox.addStretch(1)
-        # hbox.addWidget(self.slider)
-        # hbox.addStretch(1)
-
-        # hbox1 = QHBoxLayout()
-        # # hbox1.addStretch(1)
-        # hbox1.addWidget(self.slider1)
-        # # hbox1.addStretch(1)
-
-        # hbox2 = QVBoxLayout()
-        # # hbox2.addStretch(1)
-        # hbox2.addWidget(self.slider2)
-        # # hbox2.addStretch(1)
-
-
-        # vbox = QVBoxLayout()
-        # # vbox.addStretch(1)
-        # # vbox.addLayout(hbox)
-        # vbox.addLayout(hbox2)
-        # vbox.addLayout(hbox1)
+        # hbox.addWidget(self.button)
+        # self.setLayout(hbox)
         
-
-        # self.setLayout(vbox)
 
         self.setWindowTitle('STZONE v1.0')
         self.setWindowIcon(QIcon(':/icon.png'))
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
         self.move(300, 300)
-
-        self.setWindowOpacity(self.opacityvalue)
         self.resize(self.stzw, self.stzh)
         self.show()
 
@@ -99,8 +72,8 @@ class MyApp(QWidget):
         qp.end()
 
     def draw_rect(self, qp):
-        qp.setBrush(QColor(0, 0, 0))
-        qp.setPen(QPen(QColor(255, 0, 0), 3))
+        qp.setBrush(QColor(0, 0, 0, 0))
+        qp.setPen(QPen(QColor(255, 0, 0), 5))
         qp.drawRect(int(self.width()/3), int(self.height()/3), int(self.width()/3), int(self.height()/3))
 
         qp.setPen(QPen(Qt.red, 2))
