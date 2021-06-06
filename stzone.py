@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QDialog
+from PyQt5.QtWidgets import QApplication, QVBoxLayout, QWidget, QDialog, QPushButton, QHBoxLayout, QVBoxLayout
 from PyQt5.QtGui import QPainter, QPen, QColor, QBrush, QIcon
 from PyQt5.QtCore import Qt, QPoint
 import icon
@@ -14,12 +14,28 @@ class MyApp(QWidget):
 
 
     def initUI(self):
-        self.setWindowTitle('STZONE_blue v1.0')
+        # blueButton = QPushButton('')
+        # blueButton.setStyleSheet("background-color: yellow;")
+
+        # hbox = QHBoxLayout()
+        # hbox.addStretch(1)
+        # hbox.addWidget(blueButton)
+        # hbox.addStretch(1)
+
+        # vbox = QVBoxLayout()
+        # vbox.addStretch(1)
+        # vbox.addLayout(hbox)
+
+        # self.setLayout(vbox)
+
+
+
+        self.setWindowTitle('STZONE v1.0')
         self.setWindowIcon(QIcon(':/icon.png'))
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setWindowFlags(Qt.WindowStaysOnTopHint)
         self.move(300, 300)
-        self.setStyleSheet("background-color: blue;")
+        self.setStyleSheet("background-color: white;")
         self.setWindowOpacity(0.3)
         self.resize(200, 220)
         self.show()
