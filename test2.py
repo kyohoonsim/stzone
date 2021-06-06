@@ -27,10 +27,9 @@ class MyApp(QWidget):
         self.setLayout(vbox)
         
         self.move(300, 300)
-        # self.setWindowFlags(Qt.FramelessWindowHint)
-        # self.setAttribute(Qt.WA_TranslucentBackground)
-        # self.setStyleSheet('QWidget{border: 1px solid black}')
-        self.setWindowOpacity(0.3)
+        self.setWindowFlags(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+        # self.setWindowOpacity(0.3)
         self.resize(200, 220)
         self.show()
 
