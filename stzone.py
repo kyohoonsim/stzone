@@ -9,7 +9,7 @@ class MyApp(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.opacityvalue = 0.2
+        self.opacityvalue = 1
         self.initUI()
 
     def changeOpacity(self):
@@ -20,6 +20,7 @@ class MyApp(QWidget):
     def initUI(self):
         self.slider = QSlider(Qt.Horizontal, self)
         self.slider.setRange(10, 100)
+        self.slider.setValue(100)
         self.slider.setSingleStep(10)
 
         self.slider.valueChanged.connect(self.changeOpacity)
