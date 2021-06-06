@@ -9,8 +9,8 @@ class MyApp(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.stzw = 400
-        self.stzh = 500
+        self.stzw = 200
+        self.stzh = 200
         self.initUI()
 
     def changeStzW(self):
@@ -31,6 +31,7 @@ class MyApp(QWidget):
 
         self.slider2 = QSlider(Qt.Vertical, self)
         self.slider2.setRange(100, 500)
+        self.slider2.setInvertedAppearance(True)
         self.slider2.setValue(200)
         self.slider2.setSingleStep(2)
 
@@ -40,7 +41,7 @@ class MyApp(QWidget):
         self.button = QPushButton('close', self)
         self.button.clicked.connect(QCoreApplication.instance().quit)
         self.button.move(30, 30)
-        self.button.setStyleSheet("background-color: hotpink; color: white; font-weight: bold;")
+        self.button.setStyleSheet("background-color: rgba(0, 0, 0, 0.1); color: white; font-weight: bold;")
         self.button.resize(60, 30)
 
         # hbox = QHBoxLayout()
