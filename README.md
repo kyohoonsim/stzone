@@ -9,3 +9,4 @@
 ```
 pyinstaller --onefile --noconsole --icon=icon.ico --add-data="icon.ico;." -n="STZone v1.0" stzone.py
 ```
+
